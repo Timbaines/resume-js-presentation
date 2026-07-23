@@ -268,3 +268,104 @@ Handoff to Ryan to share his approach for solving the same problem.
 
 Leave time for Q/A after Ryan finishes.
 -->
+
+<!---------- SLIDE 14 | RYAN | SAME PROBLEM, DIFFERENT TARGET ---------->
+
+<!--
+Ryan takes over here.
+
+Frame the handoff:
+- Tim solved for a live URL. I solved for the PDF — the thing you actually attach to an application.
+- I wanted the same properties Tim wanted: version control, clean separation of content and styling, one source of truth.
+- The difference is just the render target: his is the browser, mine is a PDF.
+
+Possible opening line:
+While Tim was building the resume you browse, I was obsessing over the resume you attach.
+-->
+
+<!---------- SLIDE 15 | RYAN | THREE DEAD ENDS ---------->
+
+<!--
+Walk the table top to bottom as a story — each row is an honest attempt, not a strawman.
+
+LaTeX:
+- The default answer for "resume as code," so I started there
+- Found it clunky and awkward to write, and the output still didn't look amazing without serious effort
+
+Markdown:
+- Loved writing in plain text
+- But at the time there was no clean Markdown-to-PDF path with great templating
+
+Website + print CSS:
+- Built a modern-looking site with print styles — one source for web and PDF
+- Firefox gives you no clean way to remove the printer header/footer, so the printed output was never clean
+- Binned it
+
+Land the footnote:
+The Markdown situation has changed — Quarkdown looks really clean now. The lesson: tooling moves fast, so re-check your dead ends every year or two.
+-->
+
+<!---------- SLIDE 16 | RYAN | TYPST ---------->
+
+<!--
+This is the payoff slide. Point at the code.
+
+Emphasize:
+- For a JavaScript audience, Typst just feels familiar: functions with arguments, imports, blocks
+- #job(...) is literally a function call with a content block — compare it to a component taking props and children
+- typst watch gives an instant live preview, like a dev server
+- The docs are genuinely excellent — that alone put it ahead of LaTeX
+- template.typ holds all styling, resume.typ holds only content
+
+Land the callout:
+This is the same separation Tim showed. His resume.json + render modules is my resume.typ + template.typ. Good ideas transcend the language.
+-->
+
+<!---------- SLIDE 17 | RYAN | CHOOSING YOUR TOOL ---------->
+
+<!--
+Do not read every cell. Pick the audience-relevant contrasts:
+
+- Tim's approach wins when the deliverable is a URL and you want to learn the web platform along the way
+- LaTeX still makes sense if you live in that ecosystem already (academia)
+- Markdown is the fastest start; templating is its weak spot, though Quarkdown is closing that gap
+- HTML + print CSS is tempting but the browser print dialog owns your output
+- Typst is the sweet spot if the deliverable is a PDF and you want code-like control
+
+Land the callout:
+The common thread is treating your resume as structured data instead of a Word doc you nudge around. Once it's data, you can version it, diff it, and reuse it.
+-->
+
+<!---------- SLIDE 18 | RYAN | MASTER RESUME FOR AI ---------->
+
+<!--
+Explain the master file idea:
+
+- master-resume.md is a plain-Markdown superset of everything I've done
+- It's the source of truth for facts: new accomplishments land there first, then get pushed out to tailored variants
+- Each Typst resume I maintain is a curated subset of it
+
+The AI angle:
+- When I use AI to draft or tailor a resume, the master file is the context
+- The model has every real fact available, so it doesn't need to invent any — grounding beats hallucination
+- The same file feeds other AI workflows that need my full history (mention the job application pipeline only in passing — it's Python, not the topic tonight)
+
+Land the callout:
+Tim's JSON drives a web page; my Markdown drives the AI that maintains the resumes. Same principle: structure your data once, render it anywhere.
+-->
+
+<!---------- SLIDE 19 | RYAN | TEMPLATE REPO LINK ---------->
+
+<!--
+Give people a moment to scan the QR code.
+
+Mention:
+- This is the public, de-personalized version of my actual resume template
+- Fork it, replace the example content in resume.typ, run typst compile — that's the whole workflow
+- template.typ handles the styling; you shouldn't need to touch it unless you want to restyle
+
+Suggested closing line:
+Whatever tool you pick tonight — Tim's or mine — the win is the same: your resume stops being a document you dread opening and becomes a project you maintain.
+
+Hand back for Q/A.
+-->
