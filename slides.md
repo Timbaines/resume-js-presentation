@@ -17,8 +17,6 @@ comark: true
 duration: 35min
 ---
 
-<!---------- SLIDE 1 | OPENING BANNER ---------->
-
 # Build Your Resume with JavaScript
 
 Expand Your Online Presence Beyond LinkedIn
@@ -27,7 +25,9 @@ Expand Your Online Presence Beyond LinkedIn
   July 27, 2026
 </div>
 
-<!---------- SLIDE 2 | THE PROBLEM ---------->
+<!--
+Slide 1 Notes
+-->
 
 ---
 transition: fade-out
@@ -46,7 +46,9 @@ transition: fade-out
 
 </div>
 
-<!---------- SLIDE 3 | LIVE RESUME BENEFITS ---------->
+<!--
+Slide 2 Notes
+-->
 
 ---
 transition: slide-up
@@ -72,7 +74,9 @@ transition: slide-up
   A live resume complements your ATS resume, but it does not replace it. Use your ATS resume for job applications and automated screening. Use your live resume for networking, sharing project links, and telling your story.
 </div>
 
-<!---------- SLIDE 4 | THE IDEA ---------->
+<!--
+Slide 3 Notes
+-->
 
 ---
 transition: fade-out
@@ -104,7 +108,7 @@ One live URL.
 
 ---
 transition: fade-out
---- 
+---
 
 # Learning Curve
 
@@ -120,7 +124,6 @@ transition: fade-out
 | **Day 14** | Refactored into ES modules using `import` and `export`                |
 | **Day 19** | Built a design system with CSS custom properties                      |
 | **Day 21** | Added print button with `addEventListener()` and `window.print()`     |
-
 
 </div>
 
@@ -417,3 +420,220 @@ const githubRepoUrl = 'https://github.com/Timbaines/resume-js'
     {{ githubRepoUrl.replace('https://', '') }}
   </p>
 </div>
+
+<!--
+Slide 13 Notes
+-->
+
+---
+transition: fade-out
+layout: center
+class: text-center
+---
+
+# Same Problem, Different Target
+
+<div class="mt-8 text-2xl">
+
+Tim built the live resume.
+
+</div>
+
+<div v-click class="mt-4 text-2xl">
+
+I went down the rabbit hole on the PDF.
+
+</div>
+
+<div v-click class="mt-8 text-lg opacity-70">
+  Same goal underneath: a resume that works like code — versioned, themed, one source of truth.
+</div>
+
+<!--
+Callback to Tim's project.
+
+I went a different direction with the same ultimate goal.
+-->
+
+---
+transition: fade-out
+---
+
+# Getting to Typst: Three Dead Ends
+
+<div class="text-sm mt-4">
+
+| Attempt | The Appeal | Why I Binned It |
+|---|---|---|
+| **LaTeX** | Battle-tested, decades of templates | Clunky and awkward to write, and the output still wasn't amazing for the effort |
+| **Markdown → PDF** | Write in plain text, stay in your editor | No clean converter with great templating at the time* |
+| **Website + print CSS** | Modern site *and* a printable resume from one source | Firefox gives you no clean way to drop the printer header/footer |
+
+</div>
+
+<div v-click class="mt-6 p-4 border border-yellow-400/50 rounded-lg bg-yellow-400/10 text-sm">
+  *The Markdown story has improved since — Quarkdown looks really clean today. Tooling moves fast; re-check your dead ends occasionally.
+</div>
+
+<!--
+Outline 3 previous attempts.
+
+LaTeX blows (old, clunky).
+Markdown getting better.
+Website + Print good but no universal support.
+-->
+
+---
+transition: fade-out
+---
+
+# Typst: Where It Clicked
+
+<div class="grid grid-cols-2 gap-6 mt-4">
+<div class="text-xs">
+
+```typ
+// resume.typ — just content
+#import "template.typ": *
+#show: resume
+
+= Experience
+
+#job("Trader Interactive", "Software Engineer",
+     "2022 – 2026")[
+  - Migrated a legacy frontend to Nuxt/TypeScript
+  - Built the company's first image cropping API
+]
+```
+
+```typ
+// template.typ — all the styling
+#let job(company, title, date, body) = {
+  block(breakable: false, ...)
+}
+```
+
+</div>
+<div class="text-sm">
+
+### Why It Stuck
+
+- Reads like JavaScript — functions, arguments, imports
+- `typst watch` recompiles instantly as you type
+- Documentation is genuinely excellent
+- Templating is first-class: one file styles, one file is content
+- Output is a pixel-perfect PDF, every time, on every machine
+
+<div v-click class="mt-4 p-3 border border-primary/30 rounded bg-primary/5">
+  Sound familiar? It's Tim's architecture: <code>resume.json</code> + render modules. Here it's <code>resume.typ</code> + <code>template.typ</code>.
+</div>
+
+</div>
+</div>
+
+<!--
+Typst stuck cause it's JS.
+Modular setup.
+Replicatable outcome.
+Solid docs.
+-->
+
+---
+transition: fade-out
+---
+
+# Choosing Your Tool
+
+<div class="text-sm mt-4">
+
+| Tool | Pick It When… | Watch Out For… |
+|---|---|---|
+| **JavaScript + JSON** | You want a live URL and to learn the web platform | The PDF side is a print job, not the product |
+| **LaTeX** | You're in its ecosystem already (academia) | Steep syntax, slow feedback loop |
+| **Markdown** | You just want words on a page, fast | Templating is the weak spot (Quarkdown is changing this) |
+| **HTML + print CSS** | One source for site *and* PDF | The browser's print dialog owns your output |
+| **Typst** | You want code-like control and a perfect PDF | Younger ecosystem, far fewer ready-made templates |
+
+</div>
+
+<div v-click class="mt-6 p-4 border border-primary/30 rounded-lg bg-primary/5 text-sm">
+  There's no wrong answer here — every one of these beats hand-nudging a Word doc, because your resume becomes data you can version, diff, and reuse.
+</div>
+
+<!--
+Highlight that all listed tools have a valid place.
+
+My tool might already be deprecated due to Quarkdown & AI Markdown integration.
+-->
+
+---
+transition: fade-out
+---
+
+# One Master File to Feed Them All
+
+<div class="grid grid-cols-2 gap-8 mt-6">
+<div class="text-sm">
+
+### `master-resume.md`
+
+- A plain-Markdown **superset** of everything I've done
+- Source of truth for *facts* — new accomplishments land here first
+- Each tailored Typst resume is a curated subset of it
+
+</div>
+<div v-click class="text-sm">
+
+### What It Feeds
+
+- The base resume variants I maintain in Typst
+- AI drafting & tailoring — the model knows every real fact, so it doesn't need to invent any
+- Any other AI workflow that needs my full history
+
+</div>
+</div>
+
+<div v-click class="mt-8 p-4 border border-primary/30 rounded-lg bg-primary/5 text-sm">
+  Tim's <code>resume.json</code> drives a web page. My <code>master-resume.md</code> drives the AI that helps me maintain the resumes. Either way: structure your data once, render it anywhere.
+</div>
+
+<!--
+Yet another reason Quarkdown might be the future for me.
+Ultimately the same general structure as Tim's project, in a different coat.
+-->
+
+---
+layout: two-cols
+class: text-left
+---
+
+<script setup>
+import QrcodeVue from 'qrcode.vue';
+const templateRepoUrl = 'https://github.com/TekGadgt/resume-template'
+</script>
+
+# Typst Resume Template
+
+<div class="flex flex-col justify-center h-full gap-6 pb-34">
+
+  <div class="text-xl">
+    Scan the QR code to grab the template. Fork it, edit <code>resume.typ</code>, run <code>typst compile</code>.
+  </div>
+
+</div>
+
+::right::
+
+<div class="flex flex-col items-center justify-center h-full gap-4">
+  <div class="w-48 h-48 border-1 border-primary/30 rounded-lg bg-white p-3 flex items-center justify-center">
+    <QrcodeVue :value="templateRepoUrl" :size="168" level="M"></QrcodeVue>
+  </div>
+
+  <p class="text-xs font-mono opacity-70">
+    {{ templateRepoUrl.replace('https://', '') }}
+  </p>
+</div>
+
+<!--
+Just a link to my Typst template if anyone wants to try it.
+-->
