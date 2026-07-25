@@ -12,7 +12,7 @@ Opening line idea:
 I wanted to build something practical while also testing what I actually understood about JavaScript.
 -->
 
-<!---------- SLIDE 2 | THE PROBLEM ---------->
+<!---------- SLIDE 2 | WHY I BUILT THIS ---------->
 
 <!--
 Use this slide to explain the real-world motivation.
@@ -91,7 +91,7 @@ Transition:
 Once the project worked, the next challenge was making it easier to maintain.
 -->
 
-<!---------- SLIDE 6 | PROJECT STRUCTURE & REFACTOR ---------->
+<!---------- SLIDE 6 | PROJECT RESTRUCTURE & REFACTOR ---------->
 
 <!--
 Explain the difference between the early version and the refactored version.
@@ -206,7 +206,7 @@ AI was helpful as a support tool, but I still had to understand what the code wa
 Keep this section brief so there is enough time for takeaways and project links.
 -->
 
-<!---------- SLIDE 11 | KEY TAKEAWAYS ---------->
+<!---------- SLIDE 11 | TAKEAWAYS ---------->
 
 <!--
 Let each takeaway land before moving to the next.
@@ -235,41 +235,7 @@ Closing thought:
 This project did not make me an expert overnight, but it gave me a real way to measure progress.
 -->
 
-<!---------- SLIDE 12 | LIVE DEMO LINK ---------->
-
-<!--
-Let the audience see the live demo link and QR code.
-
-Mention:
-- This is the deployed version of the resume project
-- The live page shows the final result
-- The page is powered by structured data and JavaScript rendering
-
-Give people a moment to scan the QR code.
-
-Suggested line:
-If you want to see the finished resume as a user would see it, this is the live page.
--->
-
-<!---------- SLIDE 13 | GITHUB REPO LINK ---------->
-
-<!--
-Let the audience see the GitHub repo link and QR code.
-
-Mention:
-- The GitHub repo shows the source code
-- The commit history reflects the learning process
-- The repo shows the project structure, modules, data file, and refactor history
-
-Suggested line:
-The live demo shows the result. The repo shows the process.
-
-Handoff to Ryan to share his approach for solving the same problem.
-
-Leave time for Q/A after Ryan finishes.
--->
-
-<!---------- SLIDE 14 | RYAN | SAME PROBLEM, DIFFERENT TARGET ---------->
+<!---------- SLIDE 12 | RYAN | SAME PROBLEM, DIFFERENT TARGET ---------->
 
 <!--
 Ryan takes over here.
@@ -283,7 +249,7 @@ Possible opening line:
 While Tim was building the resume you browse, I was obsessing over the resume you attach.
 -->
 
-<!---------- SLIDE 15 | RYAN | THREE DEAD ENDS ---------->
+<!---------- SLIDE 13 | RYAN | THREE DEAD ENDS ---------->
 
 <!--
 Walk the table top to bottom as a story — each row is an honest attempt, not a strawman.
@@ -305,7 +271,7 @@ Land the footnote:
 The Markdown situation has changed — Quarkdown looks really clean now. The lesson: tooling moves fast, so re-check your dead ends every year or two.
 -->
 
-<!---------- SLIDE 16 | RYAN | TYPST ---------->
+<!---------- SLIDE 14 | RYAN | TYPST ---------->
 
 <!--
 This is the payoff slide. Point at the code.
@@ -321,7 +287,7 @@ Land the callout:
 This is the same separation Tim showed. His resume.json + render modules is my resume.typ + template.typ. Good ideas transcend the language.
 -->
 
-<!---------- SLIDE 17 | RYAN | CHOOSING YOUR TOOL ---------->
+<!---------- SLIDE 15 | RYAN | CHOOSING YOUR TOOL ---------->
 
 <!--
 Do not read every cell. Pick the audience-relevant contrasts:
@@ -336,7 +302,7 @@ Land the callout:
 The common thread is treating your resume as structured data instead of a Word doc you nudge around. Once it's data, you can version it, diff it, and reuse it.
 -->
 
-<!---------- SLIDE 18 | RYAN | MASTER RESUME FOR AI ---------->
+<!---------- SLIDE 16 | RYAN | MASTER RESUME FOR AI ---------->
 
 <!--
 Explain the master file idea:
@@ -354,7 +320,7 @@ Land the callout:
 Tim's JSON drives a web page; my Markdown drives the AI that maintains the resumes. Same principle: structure your data once, render it anywhere.
 -->
 
-<!---------- SLIDE 19 | RYAN | TEMPLATE REPO LINK ---------->
+<!---------- SLIDE 17 | RYAN | TEMPLATE REPO LINK ---------->
 
 <!--
 Give people a moment to scan the QR code.
@@ -369,3 +335,5 @@ Whatever tool you pick tonight — Tim's or mine — the win is the same: your r
 
 Hand back for Q/A.
 -->
+
+<!---------- SLIDE 18 | RYAN | THANKS & Q/A ---------->
