@@ -26,7 +26,18 @@ Expand Your Online Presence Beyond LinkedIn
 </div>
 
 <!--
-Slide 1 Notes
+SLIDE 1 | INTRO
+- Mention link to slideshow presentation is in Discord/Slack channel
+- Introduction
+
+**Gratitude:** Idea originated from Paul sharing the Cloud Resume Challenge
+
+- Share story of how this talk turned into an opportunity for co-op
+- Thank Ryan for agreeing to participate 
+
+- Two different approaches:
+    - My perspective as an early-career developer 
+    - From Ryan, a seasoned developer
 -->
 
 ---
@@ -39,15 +50,21 @@ transition: fade-out
 
 - The 2026 job market is competitive, especially for developers breaking in, transitioning, or recovering from layoffs
 - A resume PDF still matters, but it is not always enough
-- LinkedIn and GitHub are important, but a personal web presence shows initiative
-- I wanted to build something useful for jobseekers, early-career developers like myself, and anyone who wants a simple digital resume
-- I also wanted to measure my current JavaScript understanding honestly
+- LinkedIn and GitHub are important, but a personal web presence shows initiative while offering flexibility for customizing
+- I wanted to build something useful for jobseekers, early-career developers like myself trying to break into tech, and anyone who wants a simple digital resume
+- I wanted an honest assessment of my current JavaScript understanding
 - While learning and practicing how to think like a developer, I wanted to give another experienced developer the opportunity to share their approach, perspective, and practical tradeoffs when solving the same problem
 
 </div>
 
 <!--
-Slide 2 Notes
+SLIDE 2 | WHY I BUILT THIS
+- New to the HR Dev Community, hearing about layoffs, trying to find my fit and break into a tech career.  
+- After countless hours in “tutorial hell,” I wanted an honest assessment of my current JavaScript understanding, a project that would support continued learning and supportive to the community.
+- An opportunity to build communication skills through a practical learning project that uses HTML, CSS, and JavaScript fundamentals.
+
+**Ask:**
+- How many of you have updated your resume in the last two years?
 -->
 
 ---
@@ -71,11 +88,17 @@ transition: slide-up
 </div>
 
 <div v-click class="mt-6 p-4 border border-yellow-400/50 rounded-lg bg-yellow-400/10">
-  A live resume complements your ATS resume, but it does not replace it. Use your ATS resume for job applications and automated screening. Use your live resume for networking, sharing project links, and telling your story.
+  *A live resume complements your ATS resume, but it does not replace it. Use your ATS resume for job applications and automated screening. Use your live resume for networking, sharing project links, and telling your story.
 </div>
 
 <!--
-Slide 3 Notes
+SLIDE 3 | LIVE RESUME BENEFITS
+- This project is not a meet-all-ends solution, but an alternative avenue to share your story, show initiative while networking and building relationships.
+
+**Emphasize:**
+- An online resume is not meant to replace an ATS-friendly resume. 
+- Use the ATS resume for job applications and automated screening.
+- Use the live resume for networking, sharing project links, and telling your story.
 -->
 
 ---
@@ -88,11 +111,11 @@ class: text-center
 
 <div class="mt-8 text-2xl">
 
-One JSON file.
+One JSON file controls the resume data.
 
-One JavaScript file.
+Modular JavaScript files render to the page.
 
-One live URL.
+One live URL makes the resume shareable.
 
 </div>
 
@@ -104,30 +127,48 @@ One live URL.
   Without having to touch the HTML file.
 </div>
 
-<!---------- SLIDE 5 | MY LEARNING CURVE ---------->
+<!--
+SLIDE 4 | THE IDEA
+- The core idea was to separate the resume content from the page structure
+- Instead of hardcoding every resume detail into HTML, I wanted one data file to act as the source of truth
+- JavaScript became the connection between the data and the page
+- This helped me practice separation of concerns:
+  - JSON stores the content
+  - JavaScript handles the rendering
+  - HTML provides the page structure
+- This is where the project started to feel less like a static resume and more like a small application
+-->
 
 ---
 transition: fade-out
 ---
 
-# Learning Curve
+# My Learning Curve
 
-<div class="text-sm mt-2">
+<div class="mt-4">
 
-| Day        | Milestone                                                             |
-|------------|-----------------------------------------------------------------------|
-| **Day 1**  | Structured the project and pushed the first commit                    |
-| **Day 4**  | Used `fetch()` and `response.json()` to load resume data              |
-| **Day 5**  | Targeted sections with `document.getElementById()`                    |
-| **Day 7**  | Rendered dynamic lists with `.map()` and `.join()`                    |
-| **Day 13** | Handled errors with `try/catch`, `response.ok`, and `response.status` |
-| **Day 14** | Refactored into ES modules using `import` and `export`                |
-| **Day 19** | Built a design system with CSS custom properties                      |
-| **Day 21** | Added print button with `addEventListener()` and `window.print()`     |
+- Separated resume data, HTML, and CSS into their own files
+- Learned how to load `resume.json` with `fetch()` and turn it into usable JavaScript data
+- Used DOM methods to select sections and render content onto the page
+- Built dynamic lists with `.map()` and `.join()`
+- Rendering nested data, like lists inside larger resume sections
+- Added error handling for failed data requests
+- Refactored the project into ES `import` and `export` modules with reusable render functions
+- Cleaned up section functions with parameters, destructuring, and simpler callbacks
+- Added print behavior with click events and `window.print()`. Leveraged AI for this feature while reviewing MDN documentation to understand the code
 
 </div>
 
-<!---------- SLIDE 6 | PROJECT STRUCTURE & REFACTOR ---------->
+<!--
+SLIDE 5 | MY LEARNING CURVE
+- How to have pivot from a static page to loading resume data from a separate file and have it render to the page.
+- `fetch()`, `response.ok`, and `response.json()` helped me understand data flow: ask for data, check that it worked, then convert it into usable JavaScript.
+- DOM methods: `getElementById()`, `querySelector()`, and `innerHTML` to call data and render it to the screen
+- `.map()` transformed each data item into an HTML string, and `.join()` combined those strings into one block to render to the browser
+- Error handling helped me think through what should happen when the data does not load correctly.
+- ES modules helped me split the project into smaller files with clearer responsibilities.
+- The print button connected JavaScript events to a practical resume feature.
+-->
 
 ---
 transition: fade-out
@@ -155,7 +196,7 @@ console.log(data)
 ```
 
 </div>
-<div v-click class="text-xs">
+<div class="text-xs">
 
 ### After - Day 17
 
@@ -181,7 +222,20 @@ Each file handles one part of the page, which makes the project easier to unders
 </div>
 </div>
 
-<!---------- SLIDE 7 | PROJECT STRUCTURE ---------->
+<!--
+SLIDE 6 | PROJECT RESTRUCTURE
+- Early on, the project worked, but too many responsibilities lived in one file
+- Refactoring helped me separate the project into clearer layers:
+  - JSON holds the resume data
+  - JavaScript handles the logic and rendering
+  - HTML/DOM handles what appears on the page
+- Each file started to have one main job:
+  - The entry file loads the data
+  - The render file coordinates the sections
+  - Each section module renders one part of the resume
+- This made the project easier to understand because I knew where to look when something needed to change
+- It also made the code easier to debug because problems were more isolated
+-->
 
 ---
 transition: fade-out
@@ -224,7 +278,7 @@ resume-js/
 
 ### Why This Structure?
 
-- **`assets/fonts/`** Locally loaded fonts for performance
+- **`assets/fonts/`** Loading local fonts
 - **`data/`** Single source of truth
 - **`src/sections/`** Individual file with one job
 - **`render.mjs`** Coordinates all sections
@@ -232,13 +286,21 @@ resume-js/
 - **`index.html`** Intentionally empty shell
 
 <div class="mt-4 p-3 border border-primary/30 rounded bg-primary/5 text-sm">
-  Each file has one job.
+  Each file has one job. 
 </div>
 
 </div>
 </div>
 
-<!---------- SLIDE 8 | BUGS & MISTAKES ---------->
+<!--
+SLIDE 7 | FINAL PROJECT FILE TREE
+- `assets/fonts` improves performance, compliance and asset control
+- `resume.json` data stored in one file
+- `src/sections/` contains one render function per resume section
+- `render.mjs` coordinates rendering
+- `index.mjs` fetches the data and renders to the page 
+- `index.html` provides an empty HTML shell with section placeholders
+-->
 
 ---
 transition: fade-out
@@ -248,24 +310,37 @@ transition: fade-out
 
 <div class="text-sm mt-2">
 
-| Issue | Cause | What I Learned |
-|---|---|---|
-| `ReferenceError: data is not defined` | Data was referenced outside the scope where it existed | Scope matters, especially with fetched data |
-| `404` on `fetch()` | Wrong relative path to `resume.json` | File paths depend on where the page is loaded |
-| Silent fetch failure | `fetch()` does not throw for failed HTTP responses by itself | Check `response.ok` before calling `response.json()` |
-| Wrong section title rendered | Copy/paste without a full review | Small UI mistakes are easy to miss |
-| Unused CSS selector | Removed markup but left old CSS behind | Removing a feature means checking HTML, JS, CSS, and data |
+| Issue                                 | Cause                                                          | What I Learned                                            |
+|---------------------------------------|----------------------------------------------------------------|-----------------------------------------------------------|
+| `ReferenceError: data is not defined` | Data was referenced outside of `.then()`                       | Scope lives where the data lives                          |
+| `404` on `fetch()`                    | Wrong relative path to `resume.json`                           | File paths depend on where the page is loaded             |
+| Silent fetch failure                  | `fetch()` alone does not throw HTTP errors responses by itself | Check `response.ok` before calling `response.json()`      |
+| Wrong section title in README.md      | Copy/paste without a full review                               | Documentation mistakes are easy to miss                   |
+| Unused CSS selector                   | Removed markup but left old CSS behind                         | Removing a feature means checking HTML, JS, CSS, and data |
 
 </div>
 
-
-<!---------- SLIDE 9 | LIVE DEMO ---------->
+<!--
+SLIDE 8 | BUGS & MISTAKES
+- Lessons Learned throughout this project
+- The scope error taught me that data only exists where it is available, especially when learning to work with async code
+- The 404 error taught me that file paths can change depending on where the site is hosted
+- The silent fetch failure taught me that `fetch()` needs an extra check with `response.ok`
+- The README mistake was a reminder that documentation needs the same attention as code
+- The unused CSS selector showed me that removing a feature means checking every related file, not just one place
+- Each mistake helped me understand the project better and made the next bug easier to troubleshoot
+-->
 
 ---
 transition: fade-out
 layout: center
 class: text-center
 ---
+
+<script setup>
+import QrcodeVue from 'qrcode.vue';
+const liveDemoUrl = 'https://timbaines.github.io/resume-js/'
+</script>
 
 # Live Demo
 
@@ -277,7 +352,29 @@ class: text-center
   Change One File & Update The Entire Page
 </div>
 
-<!---------- SLIDE 10 | RESOURCES ---------->
+<div class="flex flex-col mt-8 items-center justify-center h-full gap-4">
+  <div class="w-48 h-48 border-1 border-primary/30 rounded-lg bg-white p-3 flex items-center justify-center">
+    <QrcodeVue :value="liveDemoUrl" :size="168" level="M"></QrcodeVue>
+  </div>
+
+  <p class="text-xs font-mono opacity-70">
+    {{ liveDemoUrl.replace('https://', '') }}
+  </p>
+</div>
+
+<!--
+SLIDE 9 | LIVE DEMO
+
+**Switch to IDE and Walk the group through:**
+- The JSON data file is where the data is stored (only need to make changes to one file)
+- The fetch process `index.mjs` file 
+- `render.mjs` coordinating section modules
+- Walk through skills.mjs file as example
+
+- Demo a small change to the project: 
+    - Throw an error
+    - open console show status in dev tools 
+-->
 
 ---
 transition: fade-out
@@ -289,16 +386,18 @@ class: text-left
 <div class="mt-6 text-md">
 
 - **MDN Web Docs** for JavaScript, `fetch()`, DOM methods, and browser APIs
-- **JavaScript.info** for async JavaScript and fundamentals
+- **JavaScript.info** for async JavaScript and fundamentals, error handling
 - **Scrimba** for interactive JavaScript practice and project-based learning
 - **Eloquent JavaScript** for deeper JavaScript concepts and problem solving
-- **GitHub** for version history, commits, and project review
 - **Community feedback** for improving structure, clarity, and presentation flow
 - **AI tools** for support, review, and design suggestions. Not as a replacement for understanding
 
 </div>
 
-<!---------- SLIDE 11 | KEY TAKEAWAYS ---------->
+<!--
+SLIDE 10 | RESOURCES
+- These are the resources I referenced throughout building the project
+-->
 
 ---
 transition: fade-out
@@ -308,121 +407,81 @@ transition: fade-out
 
 <div class="grid grid-cols-2 gap-4 mt-6">
 
-<div v-click class="p-4 border border-primary/20 rounded-lg bg-primary/5">
+<div v-click class="p-3 border border-primary/20 rounded-lg bg-primary/5">
   <strong>Data drives the page.</strong>
   <div class="mt-2 text-sm opacity-80">
-    A single JSON file can power the content without rewriting HTML.
+    A single JSON file can power the content without touching the HTML.
   </div>
 </div>
 
-<div v-click class="p-4 border border-primary/20 rounded-lg bg-primary/5">
+<div v-click class="p-3 border border-primary/20 rounded-lg bg-primary/5">
   <strong>Structure affects everything.</strong>
   <div class="mt-2 text-sm opacity-80">
     File organization changes paths, imports, debugging, and maintainability.
   </div>
 </div>
 
-<div v-click class="p-4 border border-primary/20 rounded-lg bg-primary/5">
+<div v-click class="p-3 border border-primary/20 rounded-lg bg-primary/5">
   <strong>Scope lives where data lives.</strong>
   <div class="mt-2 text-sm opacity-80">
     Understanding where data exists helped me fix JavaScript errors.
   </div>
 </div>
 
-<div v-click class="p-4 border border-primary/20 rounded-lg bg-primary/5">
+<div v-click class="p-3 border border-primary/20 rounded-lg bg-primary/5">
   <strong>Async code teaches you to think in steps.</strong>
   <div class="mt-2 text-sm opacity-80">
     Code does not always run top to bottom when requests and promises are involved.
   </div>
 </div>
 
-<div v-click class="p-4 border border-primary/20 rounded-lg bg-primary/5">
+<div v-click class="p-3 border border-primary/20 rounded-lg bg-primary/5">
   <strong>Modular code is easier to maintain.</strong>
   <div class="mt-2 text-sm opacity-80">
     Separation of concerns improves maintainability, debugging, and collaboration.
   </div>
 </div>
 
-<div v-click class="p-4 border border-primary/20 rounded-lg bg-primary/5">
+<div v-click class="p-3 border border-primary/20 rounded-lg bg-primary/5">
   <strong>Clean code is a process.</strong>
   <div class="mt-2 text-sm opacity-80">
     Reviewing, refactoring, and fixing mistakes are part of building real projects.
   </div>
 </div>
 
+<div v-click class="p-3 border border-primary/20 rounded-lg bg-primary/5">
+  <strong>Asking for help is part of the learning</strong>
+  <div class="mt-2 text-sm opacity-80">
+    Getting feedback helps work through problems, understand tradeoffs, and keep moving forward
+  </div>
 </div>
 
-
-<!---------- SLIDE 12 | LIVE DEMO LINK ---------->
-
----
-layout: two-cols
-class: text-left
----
-
-<script setup>
-import QrcodeVue from 'qrcode.vue';
-const liveDemoUrl = 'https://timbaines.github.io/resume-js/'
-</script>
-
-# Live Resume Demo
-
-<div class="flex flex-col justify-center h-full gap-6 pb-34">
-
-  <div class="text-xl">
-    Scan the QR code to view the deployed project.
+<div v-click class="p-3 border border-primary/20 rounded-lg bg-primary/5">
+  <strong>Relationships create opportunities</strong>
+  <div class="mt-2 text-sm opacity-80">
+    Make time to build relationships, space for feedback, collaboration, and shared learning.
   </div>
-
 </div>
 
-::right::
-
-<div class="flex flex-col items-center justify-center h-full gap-4">
-  <div class="w-48 h-48 border-1 border-primary/30 rounded-lg bg-white p-3 flex items-center justify-center">
-    <QrcodeVue :value="liveDemoUrl" :size="168" level="M"></QrcodeVue>
-  </div>
-
-  <p class="text-xs font-mono opacity-70">
-    {{ liveDemoUrl.replace('https://', '') }}
-  </p>
-</div>
-
-<!---------- SLIDE 13 | GITHUB REPO LINK ---------->
-
----
-layout: two-cols
-class: text-left
----
-
-<script setup>
-import QrcodeVue from 'qrcode.vue';
-const githubRepoUrl = 'https://github.com/Timbaines/resume-js'
-</script>
-
-# GitHub Repo
-
-<div class="flex flex-col justify-center h-full gap-6 pb-34">
-
-  <div class="text-xl">
-    Scan the QR code to view the source code.
-  </div>
-
-</div>
-
-::right::
-
-<div class="flex flex-col items-center justify-center h-full gap-4">
-  <div class="w-48 h-48 border-1 border-primary/30 rounded-lg bg-white p-3 flex items-center justify-center">
-    <QrcodeVue :value="githubRepoUrl" :size="168" level="M"></QrcodeVue>
-  </div>
-
-  <p class="text-xs font-mono opacity-70">
-    {{ githubRepoUrl.replace('https://', '') }}
-  </p>
 </div>
 
 <!--
-Slide 13 Notes
+SLIDE 11 | TAKEAWAYS
+1. Content is easier to manage when it has one source of truth
+2. File structure shapes how easy a project is to debug and maintain
+3. JavaScript scope matters most when data moves between functions
+4. Async code forces you to slow down and handle each step intentionally
+5. Refactoring turns working code into understandable code
+6. Real projects improve through review, mistakes, and feedback
+7. Asking for help
+8. The importance of relationships
+
+**Good time to share:**
+Ryan took time to walk through the project with me, offer feedback, share resources, and point out practical tradeoffs.
+
+One example was the print feature. It worked, but Ryan helped me understand that browser print behavior is not always consistent, and customization can be limited across different browsers.
+
+- Handoff to Ryan to talk about his approach 
 -->
 
 ---
@@ -450,6 +509,8 @@ I went down the rabbit hole on the PDF.
 </div>
 
 <!--
+SLIDE 12
+
 Callback to Tim's project.
 
 I went a different direction with the same ultimate goal.
@@ -476,6 +537,8 @@ transition: fade-out
 </div>
 
 <!--
+SLIDE 13
+
 Outline 3 previous attempts.
 
 LaTeX blows (old, clunky).
@@ -532,6 +595,8 @@ transition: fade-out
 </div>
 
 <!--
+SLIDE 14
+
 Typst stuck cause it's JS.
 Modular setup.
 Replicatable outcome.
@@ -561,6 +626,8 @@ transition: fade-out
 </div>
 
 <!--
+SLIDE 15
+
 Highlight that all listed tools have a valid place.
 
 My tool might already be deprecated due to Quarkdown & AI Markdown integration.
@@ -598,6 +665,8 @@ transition: fade-out
 </div>
 
 <!--
+SLIDE 16
+
 Yet another reason Quarkdown might be the future for me.
 Ultimately the same general structure as Tim's project, in a different coat.
 -->
@@ -635,5 +704,40 @@ const templateRepoUrl = 'https://github.com/TekGadgt/resume-template'
 </div>
 
 <!--
+SLIDE 17
+
 Just a link to my Typst template if anyone wants to try it.
+-->
+
+---
+transition: fade-out
+layout: center
+class: text-center
+---
+
+# Thanks
+
+<div class="mt-8 flex flex-col items-center gap-3 text-lg">
+
+  <div>
+    <strong>Resume JS Source</strong> —
+    <a href="https://github.com/Timbaines/resume-js">github.com/Timbaines/resume-js</a>
+  </div>
+
+  <div>
+    <strong>Typst Template Source</strong> —
+    <a href="https://github.com/TekGadgt/resume-template">github.com/TekGadgt/resume-template</a>
+  </div>
+
+  <div>
+    <strong>Presentation Deck</strong> —
+    <a href="https://github.com/Timbaines/resume-js-presentation">github.com/Timbaines/resume-js-presentation</a>
+  </div>
+
+</div>
+
+<!--
+SLIDE 18
+
+THANKS & Q/A - LEAVE SLIDE UP 
 -->
