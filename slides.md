@@ -37,7 +37,10 @@ SLIDE 1 | INTRO
 
 - Two different approaches:
     - My perspective as an early-career developer 
-    - From Ryan, a seasoned developer
+    - From Ryan, a senior developer
+
+**Ask:**
+- How many of you have updated your resume in the last two years?
 -->
 
 ---
@@ -46,25 +49,119 @@ transition: fade-out
 
 # Why I Built This Project
 
-<div class="mt-6">
+<div class="grid grid-cols-2 gap-6 mt-6">
 
-- The 2026 job market is competitive, especially for developers breaking in, transitioning, or recovering from layoffs
-- A resume PDF still matters, but it is not always enough
-- LinkedIn and GitHub are important, but a personal web presence shows initiative while offering flexibility for customizing
-- I wanted to build something useful for jobseekers, early-career developers like myself trying to break into tech, and anyone who wants a simple digital resume
-- I wanted an honest assessment of my current JavaScript understanding
-- While learning and practicing how to think like a developer, I wanted to give another experienced developer the opportunity to share their approach, perspective, and practical tradeoffs when solving the same problem
+<div v-click class="flex flex-col gap-2">
+
+**1. Competitive Job Market**
+<div class="w-full h-64 rounded-lg overflow-hidden">
+  <img src="/competitive-market.webp" alt="Competitive Job Market" class="w-full h-full object-cover">
+</div>
+<div class="text-xs opacity-70 mt-2">
+2026 Competitive Job Market. Breaking in, transitioning, or recovering from layoffs.
+</div>
+
+</div>
+
+<div v-click class="flex flex-col gap-2">
+
+**2. Resume PDF Isn't Enough**
+<div class="w-full h-64 rounded-lg overflow-hidden">
+  <img src="/pdf-resume.webp" alt="Resume document" class="w-full h-full object-cover">
+</div>
+<div class="text-xs opacity-70 mt-2">
+A traditional resume still matters, but alone it's not enough to stand out.
+</div>
+
+</div>
 
 </div>
 
 <!--
-SLIDE 2 | WHY I BUILT THIS
-- New to the HR Dev Community, hearing about layoffs, trying to find my fit and break into a tech career.  
-- After countless hours in “tutorial hell,” I wanted an honest assessment of my current JavaScript understanding, a project that would support continued learning and supportive to the community.
-- An opportunity to build communication skills through a practical learning project that uses HTML, CSS, and JavaScript fundamentals.
+SLIDE 2 | WHY I BUILT THIS - Part 1
+- The job market is competitive, especially for developers breaking in, transitioning, or recovering from layoffs
+- A resume PDF still matters, but it is not always enough
+-->
 
-**Ask:**
-- How many of you have updated your resume in the last two years?
+---
+transition: fade-out
+---
+
+# Why I Built This Project (cont.)
+
+<div class="grid grid-cols-2 gap-6 mt-6">
+
+<div v-click class="flex flex-col gap-2">
+
+**3. Personal Web Presence**
+<div class="w-full h-64 rounded-lg overflow-hidden">
+  <img src="/online-presence.webp" alt="Web/online presence" class="w-full h-full object-cover">
+</div>
+<div class="text-xs opacity-70 mt-2">
+LinkedIn and GitHub matter, but a personal web presence shows initiative and flexibility.
+</div>
+
+</div>
+
+<div v-click class="flex flex-col gap-2">
+
+**4. Build Something Useful & Community Driven**
+<div class="w-full h-64 rounded-lg overflow-hidden">
+  <img src="/built-for-community.webp" alt="Tools/building" class="w-full h-full object-cover">
+</div>
+<div class="text-xs opacity-70 mt-2">
+Build something useful for jobseekers and early-career developers. Support the community.
+</div>
+
+</div>
+
+</div>
+
+<!--
+SLIDE 3 | WHY I BUILT THIS - Part 2
+- LinkedIn and GitHub are important, but a personal web presence shows initiative while offering flexibility for customizing
+- I wanted to build something useful for jobseekers, early-career developers like myself trying to break into tech, and anyone who wants a simple digital resume
+-->
+
+---
+transition: fade-out
+---
+
+# Why I Built This Project (cont.)
+
+<div class="grid grid-cols-2 gap-6 mt-6">
+
+<div v-click class="flex flex-col gap-2">
+
+**5. Assess My JavaScript Skills**
+<div class="w-full h-64 rounded-lg overflow-hidden">
+  <img src="/assess-goat.webp" alt="JavaScript/assessment" class="w-full h-full object-cover">
+</div>
+<div class="text-xs opacity-70 mt-2">
+An honest assessment of my current JavaScript understanding. Real comprehension, not just tutorials.
+</div>
+
+</div>
+
+<div v-click class="flex flex-col gap-2">
+
+**6. Learn From Another Developer**
+<div class="w-full h-64 rounded-lg overflow-hidden">
+  <img src="/learning.webp" alt="Learning/development process" class="w-full h-full object-cover">
+</div>
+<div class="text-xs opacity-70 mt-2">
+Compare approaches, perspectives, and tradeoffs with an experienced developer solving the same problem.
+</div>
+
+</div>
+
+</div>
+
+<!--
+SLIDE 4 | WHY I BUILT THIS - Part 3
+- I wanted an honest assessment of my current JavaScript understanding, while learning and practicing how to think like a developer, I wanted to build communication skills through a practical project using HTML, CSS, and JavaScript fundamentals
+- I wanted an experienced developer to solve the same problem so I could compare approaches, perspectives, and practical tradeoffs when solving the same problem
+- New to the dev community and hearing about layoffs, I wanted to share knowledge, support others breaking in, and build relationships through collaborative learning
 -->
 
 ---
@@ -141,21 +238,19 @@ SLIDE 4 | THE IDEA
 
 ---
 transition: fade-out
----
+--- 
 
-# My Learning Curve
+# Learning Curve
 
-<div class="mt-4">
+<div class="text-sm mt-2">
 
-- Separated resume data, HTML, and CSS into their own files
-- Learned how to load `resume.json` with `fetch()` and turn it into usable JavaScript data
-- Used DOM methods to select sections and render content onto the page
-- Built dynamic lists with `.map()` and `.join()`
-- Rendering nested data, like lists inside larger resume sections
-- Added error handling for failed data requests
-- Refactored the project into ES `import` and `export` modules with reusable render functions
-- Cleaned up section functions with parameters, destructuring, and simpler callbacks
-- Added print behavior with click events and `window.print()`. Leveraged AI for this feature while reviewing MDN documentation to understand the code
+| Day        | Milestone                                                     |
+|------------|---------------------------------------------------------------|
+| **Day 1-3**  | Project setup with structuring JSON data and HTML skeleton    |
+| **Day 4-7**  | Core functionality fetch data and render with JavaScript      |
+| **Day 13** | Error handling with `try/catch`                               |
+| **Day 14-17** | Refactoring into modular components                           |
+| **Day 18-21** | Styling, design system, and print feature (CSS, fonts, print) |
 
 </div>
 
