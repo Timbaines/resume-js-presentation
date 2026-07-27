@@ -617,7 +617,9 @@ I went down the rabbit hole on the PDF.
 </div>
 
 <!--
-SLIDE 15
+SLIDE 15 | RYAN — HANDOFF
+
+Segue off Tim's Resources slide: he just said AI tools are for support, not a replacement for understanding. I learned that one the hard way — my resume journey literally starts with AI as the replacement. Hold that thought for the next slide.
 
 Callback to Tim's project.
 
@@ -628,30 +630,34 @@ I went a different direction with the same ultimate goal.
 transition: fade-out
 ---
 
-# Getting to Typst: Three Dead Ends
+# Getting to Typst: Four Dead Ends
 
 <div class="text-sm mt-4">
 
-| Attempt | The Appeal | Why I Binned It |
-|---|---|---|
-| **LaTeX** | Battle-tested, decades of templates | Clunky and awkward to write, and the output still wasn't amazing for the effort |
-| **Markdown → PDF** | Write in plain text, stay in your editor | No clean converter with great templating at the time* |
-| **Website + print CSS** | Modern site *and* a printable resume from one source | Firefox gives you no clean way to drop the printer header/footer |
+| Attempt | The Appeal | Why I Binned It | Pick It Anyway If… |
+|---|---|---|---|
+| **AI chat → PDF** | Describe yourself, download a resume | Hallucinated facts; template drifted between runs | It's a one-off and you proofread every line |
+| **LaTeX** | Battle-tested, decades of templates | Clunky and awkward; output wasn't amazing for the effort | You're already in its ecosystem (academia) |
+| **Markdown → PDF** | Plain text, stay in your editor | No clean converter with great templating at the time | Quarkdown keeps maturing — it looks clean today |
+| **Website + print CSS** | Modern site *and* PDF from one source | Firefox won't drop the printer header/footer | The live site is the product — Tim's lane |
 
 </div>
 
-<div v-click class="mt-6 p-4 border border-yellow-400/50 rounded-lg bg-yellow-400/10 text-sm">
-  *The Markdown story has improved since — Quarkdown looks really clean today. Tooling moves fast; re-check your dead ends occasionally.
+<div v-click class="mt-6 p-4 border border-primary/30 rounded-lg bg-primary/5 text-sm">
+  There's no wrong answer here — every one of these beats hand-nudging a Word doc, because your resume becomes data you can version, diff, and reuse.
 </div>
 
 <!--
-SLIDE 16
+SLIDE 16 | RYAN — FOUR DEAD ENDS
 
-Outline 3 previous attempts.
+Walk it chronologically.
 
-LaTeX blows (old, clunky).
-Markdown getting better.
-Website + Print good but no universal support.
+1. Before any tooling, I had Claude (web) generate resume PDFs. Two problems: it hallucinated accomplishments, and the template drifted between generations — sometimes minor, sometimes major. Lesson: the content has to be mine. (This sets up the master-resume slide later — grounding fixes it.)
+2. LaTeX: clunky and awkward to write, output still wasn't amazing for the effort.
+3. Markdown: loved plain text, but no clean MD→PDF path with real templating at the time.
+4. Website + print CSS: one source for site and PDF, but Firefox gives no clean way to drop the printer header/footer. (Callback: that browser-print advice Tim mentioned me giving him earlier? This dead end is where I learned it.)
+
+Land the last column: every tool has a lane — Tim's project is the print-CSS lane done right, where the live site IS the product. And re-check your dead ends occasionally; Quarkdown has since closed much of the Markdown gap.
 -->
 
 ---
@@ -694,6 +700,7 @@ transition: fade-out
 - Documentation is genuinely excellent
 - Templating is first-class: one file styles, one file is content
 - Output is a pixel-perfect PDF, every time, on every machine
+- Honest trade-off: younger ecosystem, fewer ready-made templates than LaTeX
 
 <div v-click class="mt-4 p-3 border border-primary/30 rounded bg-primary/5">
   Sound familiar? It's Tim's architecture: <code>resume.json</code> + render modules. Here it's <code>resume.typ</code> + <code>template.typ</code>.
@@ -703,42 +710,13 @@ transition: fade-out
 </div>
 
 <!--
-SLIDE 17
+SLIDE 17 | RYAN — TYPST
 
 Typst stuck cause it's JS.
 Modular setup.
 Replicatable outcome.
 Solid docs.
--->
-
----
-transition: fade-out
----
-
-# Choosing Your Tool
-
-<div class="text-sm mt-4">
-
-| Tool | Pick It When… | Watch Out For… |
-|---|---|---|
-| **JavaScript + JSON** | You want a live URL and to learn the web platform | The PDF side is a print job, not the product |
-| **LaTeX** | You're in its ecosystem already (academia) | Steep syntax, slow feedback loop |
-| **Markdown** | You just want words on a page, fast | Templating is the weak spot (Quarkdown is changing this) |
-| **HTML + print CSS** | One source for site *and* PDF | The browser's print dialog owns your output |
-| **Typst** | You want code-like control and a perfect PDF | Younger ecosystem, far fewer ready-made templates |
-
-</div>
-
-<div v-click class="mt-6 p-4 border border-primary/30 rounded-lg bg-primary/5 text-sm">
-  There's no wrong answer here — every one of these beats hand-nudging a Word doc, because your resume becomes data you can version, diff, and reuse.
-</div>
-
-<!--
-SLIDE 18
-
-Highlight that all listed tools have a valid place.
-
-My tool might already be deprecated due to Quarkdown & AI Markdown integration.
+Honest caveat: ecosystem is younger than LaTeX's, fewer ready-made templates — that's the trade for the nicer language.
 -->
 
 ---
@@ -747,41 +725,56 @@ transition: fade-out
 
 # One Master File to Feed Them All
 
-<div class="grid grid-cols-2 gap-8 mt-6">
-<div class="text-sm">
+<div class="flex justify-center mt-4">
 
-### `master-resume.md`
+```mermaid {theme: 'neutral', scale: 0.7}
+flowchart LR
+    M["📄 master-resume.md<br/><i>every real fact, one file</i>"]
 
-- A plain-Markdown **superset** of everything I've done
-- Source of truth for *facts* — new accomplishments land here first
-- Each tailored Typst resume is a curated subset of it
+    AI{{"🤖 AI tailoring<br/><i>curates real facts, never invents</i>"}}
+
+    subgraph V["Typst variants (curated subsets)"]
+        IC["ic<br/>Senior SWE"]
+        DX["devex<br/>customer-facing eng"]
+        DR["devrel<br/>community & advocacy"]
+    end
+
+    PDF["typst compile<br/>→ tailored PDF"]
+    PIPE["other AI workflows<br/>(job-application pipeline)"]
+
+    M --> AI
+    AI -.-> V
+    IC --> PDF
+    DX --> PDF
+    DR --> PDF
+    M --> PIPE
+```
 
 </div>
-<div v-click class="text-sm">
 
-### What It Feeds
-
-- The base resume variants I maintain in Typst
-- AI drafting & tailoring — the model knows every real fact, so it doesn't need to invent any
-- Any other AI workflow that needs my full history
-
-</div>
-</div>
-
-<div v-click class="mt-8 p-4 border border-primary/30 rounded-lg bg-primary/5 text-sm">
+<div v-click class="mt-4 p-4 border border-primary/30 rounded-lg bg-primary/5 text-sm">
   Tim's <code>resume.json</code> drives a web page. My <code>master-resume.md</code> drives the AI that helps me maintain the resumes. Either way: structure your data once, render it anywhere.
 </div>
 
 <!--
-SLIDE 19
+SLIDE 18 | RYAN — MASTER FILE
+
+Walk the diagram left to right:
+- master-resume.md is a plain-Markdown superset of everything I've done — source of truth for facts, new accomplishments land here first
+- AI tailoring sits BETWEEN the facts and the variants — it curates, it never invents
+- Each Typst variant (ic / devex / devrel) is a curated subset, compiled to a tailored PDF
+- The same master file feeds other AI workflows (job-application pipeline — mention in passing only, it's Python)
+
+Callback to dead end #1: AI generating the resume failed because it had nothing true to work from. Give it a superset of real facts and the roles flip — I own the content, AI helps curate. Grounding beats hallucination.
 
 Yet another reason Quarkdown might be the future for me.
 Ultimately the same general structure as Tim's project, in a different coat.
 -->
 
 ---
-layout: two-cols
-class: text-left
+transition: fade-out
+layout: center
+class: text-center
 ---
 
 <script setup>
@@ -791,17 +784,11 @@ const templateRepoUrl = 'https://github.com/TekGadgt/resume-template'
 
 # Typst Resume Template
 
-<div class="flex flex-col justify-center h-full gap-6 pb-34">
-
-  <div class="text-xl">
-    Scan the QR code to grab the template. Fork it, edit <code>resume.typ</code>, run <code>typst compile</code>.
-  </div>
-
+<div class="mt-8 text-lg opacity-70">
+  Scan the QR code to grab the template. Fork it, edit <code>resume.typ</code>, run <code>typst compile</code>.
 </div>
 
-::right::
-
-<div class="flex flex-col items-center justify-center h-full gap-4">
+<div class="flex flex-col mt-8 items-center justify-center h-full gap-4">
   <div class="w-48 h-48 border-1 border-primary/30 rounded-lg bg-white p-3 flex items-center justify-center">
     <QrcodeVue :value="templateRepoUrl" :size="168" level="M"></QrcodeVue>
   </div>
@@ -812,7 +799,7 @@ const templateRepoUrl = 'https://github.com/TekGadgt/resume-template'
 </div>
 
 <!--
-SLIDE 20
+SLIDE 19 | RYAN — TEMPLATE QR
 
 Just a link to my Typst template if anyone wants to try it.
 -->
@@ -845,7 +832,7 @@ class: text-center
 </div>
 
 <!--
-SLIDE 21
+SLIDE 20
 
 THANKS & Q/A - LEAVE SLIDE UP 
 -->
@@ -879,7 +866,7 @@ const htmlDayUrl = 'https://tekgadgt.github.io/htmlday-hamptonroads/2026/'
 </div>
 
 <!--
-SLIDE 22 | HTML DAY
+SLIDE 21 | HTML DAY
 - Save as index.html, open in browser, congrats you made a website. No npm install, no config, nothing to break. That's it. That's the event.
 - Come make something on Aug 8. Bring a laptop, or paper if you're feeling old school. Zero experience needed, no AI (hands on keys, like it's 2003), and Val Town is buying coffee and pastries.
 - Sat Aug 8, 10am-2pm @ ECPI Main Campus (5555 Greenwich Rd, Virginia Beach)
