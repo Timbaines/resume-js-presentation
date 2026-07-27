@@ -105,7 +105,7 @@ LinkedIn and GitHub matter, but a personal web presence shows initiative and fle
 
 <div v-click class="flex flex-col gap-2">
 
-**4. Build Something Useful & Community Driven**
+**4. Build Something Useful & For The Community**
 <div class="w-full h-64 rounded-lg overflow-hidden">
   <img src="/built-for-community.webp" alt="Tools/building" class="w-full h-full object-cover">
 </div>
@@ -120,7 +120,7 @@ Build something useful for jobseekers and early-career developers. Support the c
 <!--
 SLIDE 3 | WHY I BUILT THIS - Part 2
 - LinkedIn and GitHub are important, but a personal web presence shows initiative while offering flexibility for customizing
-- I wanted to build something useful for jobseekers, early-career developers like myself trying to break into tech, and anyone who wants a simple digital resume
+- New to the dev community and hearing about layoffs, I wanted to build something useful for jobseekers, early-career developers like myself trying to break into tech, and anyone who wants a simple digital resume
 -->
 
 ---
@@ -159,9 +159,8 @@ Compare approaches, perspectives, and tradeoffs with an experienced developer so
 
 <!--
 SLIDE 4 | WHY I BUILT THIS - Part 3
-- I wanted an honest assessment of my current JavaScript understanding, while learning and practicing how to think like a developer, I wanted to build communication skills through a practical project using HTML, CSS, and JavaScript fundamentals
-- I wanted an experienced developer to solve the same problem so I could compare approaches, perspectives, and practical tradeoffs when solving the same problem
-- New to the dev community and hearing about layoffs, I wanted to share knowledge, support others breaking in, and build relationships through collaborative learning
+- I wanted an honest assessment of my current JavaScript understanding, while learning and practicing how to think like a developer, I also wanted to build communication skills through a practical project using HTML, CSS, and JavaScript fundamentals
+- The opportunity to speak with Ryan, learn from his experience, compare approaches, perspectives, and practical tradeoffs when solving the same problem
 -->
 
 ---
@@ -189,7 +188,7 @@ transition: slide-up
 </div>
 
 <!--
-SLIDE 3 | LIVE RESUME BENEFITS
+SLIDE 5 | LIVE RESUME BENEFITS
 - This project is not a meet-all-ends solution, but an alternative avenue to share your story, show initiative while networking and building relationships.
 
 **Emphasize:**
@@ -225,15 +224,11 @@ One live URL makes the resume shareable.
 </div>
 
 <!--
-SLIDE 4 | THE IDEA
+SLIDE 6 | THE IDEA
 - The core idea was to separate the resume content from the page structure
 - Instead of hardcoding every resume detail into HTML, I wanted one data file to act as the source of truth
 - JavaScript became the connection between the data and the page
-- This helped me practice separation of concerns:
-  - JSON stores the content
-  - JavaScript handles the rendering
-  - HTML provides the page structure
-- This is where the project started to feel less like a static resume and more like a small application
+- Provide another alternative to sharing a resume through a live URL 
 -->
 
 ---
@@ -247,7 +242,7 @@ transition: fade-out
 | Day        | Milestone                                                     |
 |------------|---------------------------------------------------------------|
 | **Day 1-3**  | Project setup with structuring JSON data and HTML skeleton    |
-| **Day 4-7**  | Core functionality fetch data and render with JavaScript      |
+| **Day 4-7**  | Core functionality: fetch data / render with JavaScript       |
 | **Day 13** | Error handling with `try/catch`                               |
 | **Day 14-17** | Refactoring into modular components                           |
 | **Day 18-21** | Styling, design system, and print feature (CSS, fonts, print) |
@@ -255,8 +250,8 @@ transition: fade-out
 </div>
 
 <!--
-SLIDE 5 | MY LEARNING CURVE
-- How to have pivot from a static page to loading resume data from a separate file and have it render to the page.
+SLIDE 7 | MY LEARNING CURVE
+- How to pivot from a static page to loading resume data from a separate file and have it render to the page.
 - `fetch()`, `response.ok`, and `response.json()` helped me understand data flow: ask for data, check that it worked, then convert it into usable JavaScript.
 - DOM methods: `getElementById()`, `querySelector()`, and `innerHTML` to call data and render it to the screen
 - `.map()` transformed each data item into an HTML string, and `.join()` combined those strings into one block to render to the browser
@@ -318,7 +313,7 @@ Each file handles one part of the page, which makes the project easier to unders
 </div>
 
 <!--
-SLIDE 6 | PROJECT RESTRUCTURE
+SLIDE 8 | PROJECT RESTRUCTURE
 - Early on, the project worked, but too many responsibilities lived in one file
 - Refactoring helped me separate the project into clearer layers:
   - JSON holds the resume data
@@ -388,7 +383,7 @@ resume-js/
 </div>
 
 <!--
-SLIDE 7 | FINAL PROJECT FILE TREE
+SLIDE 9 | FINAL PROJECT FILE TREE
 - `assets/fonts` improves performance, compliance and asset control
 - `resume.json` data stored in one file
 - `src/sections/` contains one render function per resume section
@@ -416,8 +411,10 @@ transition: fade-out
 </div>
 
 <!--
-SLIDE 8 | BUGS & MISTAKES
-- Lessons Learned throughout this project
+SLIDE 10 | BUGS & MISTAKES
+
+**Lessons Learned**
+
 - The scope error taught me that data only exists where it is available, especially when learning to work with async code
 - The 404 error taught me that file paths can change depending on where the site is hosted
 - The silent fetch failure taught me that `fetch()` needs an extra check with `response.ok`
@@ -458,7 +455,7 @@ const liveDemoUrl = 'https://timbaines.github.io/resume-js/'
 </div>
 
 <!--
-SLIDE 9 | LIVE DEMO
+SLIDE 11 | LIVE DEMO
 
 **Switch to IDE and Walk the group through:**
 - The JSON data file is where the data is stored (only need to make changes to one file)
@@ -469,29 +466,6 @@ SLIDE 9 | LIVE DEMO
 - Demo a small change to the project: 
     - Throw an error
     - open console show status in dev tools 
--->
-
----
-transition: fade-out
-class: text-left
----
-
-# Resources
-
-<div class="mt-6 text-md">
-
-- **MDN Web Docs** for JavaScript, `fetch()`, DOM methods, and browser APIs
-- **JavaScript.info** for async JavaScript and fundamentals, error handling
-- **Scrimba** for interactive JavaScript practice and project-based learning
-- **Eloquent JavaScript** for deeper JavaScript concepts and problem solving
-- **Community feedback** for improving structure, clarity, and presentation flow
-- **AI tools** for support, review, and design suggestions. Not as a replacement for understanding
-
-</div>
-
-<!--
-SLIDE 10 | RESOURCES
-- These are the resources I referenced throughout building the project
 -->
 
 ---
@@ -530,6 +504,24 @@ transition: fade-out
   </div>
 </div>
 
+</div>
+
+<!--
+SLIDE 12 | TAKEAWAYS - Part 1
+1. Content is easier to manage when it has one source of truth
+2. File structure shapes how easy a project is to debug and maintain
+3. JavaScript scope matters most when data moves between functions
+4. Async code forces you to slow down and handle each step intentionally
+-->
+
+---
+transition: fade-out
+---
+
+# Key Takeaways
+
+<div class="grid grid-cols-2 gap-4 mt-6">
+
 <div v-click class="p-3 border border-primary/20 rounded-lg bg-primary/5">
   <strong>Modular code is easier to maintain.</strong>
   <div class="mt-2 text-sm opacity-80">
@@ -561,11 +553,8 @@ transition: fade-out
 </div>
 
 <!--
-SLIDE 11 | TAKEAWAYS
-1. Content is easier to manage when it has one source of truth
-2. File structure shapes how easy a project is to debug and maintain
-3. JavaScript scope matters most when data moves between functions
-4. Async code forces you to slow down and handle each step intentionally
+SLIDE 13 | TAKEAWAYS - Part 2
+
 5. Refactoring turns working code into understandable code
 6. Real projects improve through review, mistakes, and feedback
 7. Asking for help
@@ -576,7 +565,31 @@ Ryan took time to walk through the project with me, offer feedback, share resour
 
 One example was the print feature. It worked, but Ryan helped me understand that browser print behavior is not always consistent, and customization can be limited across different browsers.
 
-- Handoff to Ryan to talk about his approach 
+-->
+
+---
+transition: fade-out
+class: text-left
+---
+
+# Resources
+
+<div class="mt-6 text-md">
+
+- **MDN Web Docs** for JavaScript, `fetch()`, DOM methods, and browser APIs
+- **JavaScript.info** for async JavaScript and fundamentals, error handling
+- **Scrimba** for interactive JavaScript practice and project-based learning
+- **Eloquent JavaScript** for deeper JavaScript concepts and problem solving
+- **Community feedback** for improving structure, clarity, and presentation flow
+- **AI tools** for support, review, and design suggestions. Not as a replacement for understanding
+
+</div>
+
+<!--
+SLIDE 14 | RESOURCES
+- These are the resources I referenced throughout building the project
+
+**Handoff to Ryan to talk about his approach**
 -->
 
 ---
@@ -604,7 +617,7 @@ I went down the rabbit hole on the PDF.
 </div>
 
 <!--
-SLIDE 12
+SLIDE 15
 
 Callback to Tim's project.
 
@@ -632,7 +645,7 @@ transition: fade-out
 </div>
 
 <!--
-SLIDE 13
+SLIDE 16
 
 Outline 3 previous attempts.
 
@@ -690,7 +703,7 @@ transition: fade-out
 </div>
 
 <!--
-SLIDE 14
+SLIDE 17
 
 Typst stuck cause it's JS.
 Modular setup.
@@ -721,7 +734,7 @@ transition: fade-out
 </div>
 
 <!--
-SLIDE 15
+SLIDE 18
 
 Highlight that all listed tools have a valid place.
 
@@ -760,7 +773,7 @@ transition: fade-out
 </div>
 
 <!--
-SLIDE 16
+SLIDE 19
 
 Yet another reason Quarkdown might be the future for me.
 Ultimately the same general structure as Tim's project, in a different coat.
@@ -799,7 +812,7 @@ const templateRepoUrl = 'https://github.com/TekGadgt/resume-template'
 </div>
 
 <!--
-SLIDE 17
+SLIDE 20
 
 Just a link to my Typst template if anyone wants to try it.
 -->
@@ -832,7 +845,43 @@ class: text-center
 </div>
 
 <!--
-SLIDE 18
+SLIDE 21
 
 THANKS & Q/A - LEAVE SLIDE UP 
 -->
+
+---
+transition: fade-out
+layout: center
+class: text-center
+---
+
+<script setup>
+import QrcodeVue from 'qrcode.vue';
+const htmlDayUrl = 'https://tekgadgt.github.io/htmlday-hamptonroads/2026/'
+</script>
+
+# Hampton Roads HTML DAY!
+
+<div class="mt-8 text-lg opacity-70">
+  Scan The QR code to view event and RSVP
+</div>
+
+<div class="flex flex-col mt-8 items-center justify-center h-full gap-4">
+  <div class="w-48 h-48 border-1 border-primary/30 rounded-lg bg-white p-3 flex items-center justify-center">
+    <QrcodeVue :value="htmlDayUrl" :size="168" level="M"></QrcodeVue>
+  </div>
+
+  <p class="text-xs font-mono opacity-70">
+    {{ htmlDayUrl.replace('https://', '') }}
+  </p>
+
+</div>
+
+<!--
+SLIDE 22 | HTML DAY
+- Save as index.html, open in browser, congrats you made a website. No npm install, no config, nothing to break. That's it. That's the event.
+- Come make something on Aug 8. Bring a laptop, or paper if you're feeling old school. Zero experience needed, no AI (hands on keys, like it's 2003), and Val Town is buying coffee and pastries.
+- Sat Aug 8, 10am-2pm @ ECPI Main Campus (5555 Greenwich Rd, Virginia Beach)
+-->
+
