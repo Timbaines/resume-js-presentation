@@ -12,7 +12,7 @@ Opening line idea:
 I wanted to build something practical while also testing what I actually understood about JavaScript.
 -->
 
-<!---------- SLIDE 2 | WHY I BUILT THIS ---------->
+<!---------- SLIDE 2-4 | WHY I BUILT THIS ---------->
 
 <!--
 Use this slide to explain the real-world motivation.
@@ -32,7 +32,7 @@ Then transition:
 A traditional resume is still important, but a live resume can support it in ways a PDF cannot.
 -->
 
-<!---------- SLIDE 3 | LIVE RESUME BENEFITS ---------->
+<!---------- SLIDE 5 | LIVE RESUME BENEFITS ---------->
 
 <!--
 Explain that a live resume is not meant to replace an ATS-friendly resume.
@@ -51,7 +51,7 @@ Possible line:
 A live resume is not the replacement. It is the companion.
 -->
 
-<!---------- SLIDE 4 | THE IDEA ---------->
+<!---------- SLIDE 6 | THE IDEA ---------->
 
 <!--
 This is the thesis slide.
@@ -69,7 +69,7 @@ Emphasize:
 This was the point where the project became more than a static page. The data started driving the content.
 -->
 
-<!---------- SLIDE 5 | MY LEARNING CURVE ---------->
+<!---------- SLIDE 7 | MY LEARNING CURVE ---------->
 
 <!--
 Walk through this like a story, not a list.
@@ -91,7 +91,7 @@ Transition:
 Once the project worked, the next challenge was making it easier to maintain.
 -->
 
-<!---------- SLIDE 6 | PROJECT RESTRUCTURE & REFACTOR ---------->
+<!---------- SLIDE 8 | PROJECT RESTRUCTURE & REFACTOR ---------->
 
 <!--
 Explain the difference between the early version and the refactored version.
@@ -115,7 +115,7 @@ Main point:
 This is the best practice I did not just read about. I built it, broke it, and refactored toward it.
 -->
 
-<!---------- SLIDE 7 | FINAL PROJECT STRUCTURE ---------->
+<!---------- SLIDE 9 | FINAL PROJECT STRUCTURE ---------->
 
 <!--
 Point to each folder and explain its role.
@@ -138,7 +138,7 @@ Transition:
 This structure helped, but it did not prevent mistakes. It made the mistakes easier to understand.
 -->
 
-<!---------- SLIDE 8 | BUGS & MISTAKES ---------->
+<!---------- SLIDE 10 | BUGS & MISTAKES ---------->
 
 <!--
 Walk through the table as lessons, not failures.
@@ -158,7 +158,7 @@ Every bug became a map of what I did not understand yet.
 Do not spend too long here. Pick two or three examples and move forward.
 -->
 
-<!---------- SLIDE 9 | LIVE DEMO ---------->
+<!---------- SLIDE 11 | LIVE DEMO ---------->
 
 <!--
 Walk through the flow:
@@ -186,27 +186,7 @@ Transition:
 After building and debugging the project, these were the resources that helped me keep learning.
 -->
 
-<!---------- SLIDE 10 | RESOURCES ---------->
-
-<!--
-Use this slide to point people toward anything that helped you build and understand the project.
-
-Mention:
-- MDN Web Docs for JavaScript, fetch, DOM methods, and browser APIs
-- JavaScript.info for async JavaScript and fundamentals
-- Scrimba for interactive JavaScript practice and project-based learning
-- Eloquent JavaScript for deeper JavaScript concepts and problem solving
-- GitHub for version history, commits, and project review
-- Community feedback for improving structure, clarity, and presentation flow
-- AI tools for support, review, and design suggestions, not as a replacement for understanding
-
-Suggested wording:
-AI was helpful as a support tool, but I still had to understand what the code was doing.
-
-Keep this section brief so there is enough time for takeaways and project links.
--->
-
-<!---------- SLIDE 11 | TAKEAWAYS ---------->
+<!---------- SLIDE 12-13 | TAKEAWAYS ---------->
 
 <!--
 Let each takeaway land before moving to the next.
@@ -235,7 +215,28 @@ Closing thought:
 This project did not make me an expert overnight, but it gave me a real way to measure progress.
 -->
 
-<!---------- SLIDE 12 | RYAN | SAME PROBLEM, DIFFERENT TARGET ---------->
+
+<!---------- SLIDE 14 | RESOURCES ---------->
+
+<!--
+Use this slide to point people toward anything that helped you build and understand the project.
+
+Mention:
+- MDN Web Docs for JavaScript, fetch, DOM methods, and browser APIs
+- JavaScript.info for async JavaScript and fundamentals
+- Scrimba for interactive JavaScript practice and project-based learning
+- Eloquent JavaScript for deeper JavaScript concepts and problem solving
+- GitHub for version history, commits, and project review
+- Community feedback for improving structure, clarity, and presentation flow
+- AI tools for support, review, and design suggestions, not as a replacement for understanding
+
+Suggested wording:
+AI was helpful as a support tool, but I still had to understand what the code was doing.
+
+Keep this section brief so there is enough time for takeaways and project links.
+-->
+
+<!---------- SLIDE 15 | RYAN | SAME PROBLEM, DIFFERENT TARGET ---------->
 
 <!--
 Ryan takes over here.
@@ -249,7 +250,7 @@ Possible opening line:
 While Tim was building the resume you browse, I was obsessing over the resume you attach.
 -->
 
-<!---------- SLIDE 13 | RYAN | THREE DEAD ENDS ---------->
+<!---------- SLIDE 16 | RYAN | THREE DEAD ENDS ---------->
 
 <!--
 Walk the table top to bottom as a story — each row is an honest attempt, not a strawman.
@@ -271,7 +272,7 @@ Land the footnote:
 The Markdown situation has changed — Quarkdown looks really clean now. The lesson: tooling moves fast, so re-check your dead ends every year or two.
 -->
 
-<!---------- SLIDE 14 | RYAN | TYPST ---------->
+<!---------- SLIDE 17 | RYAN | TYPST ---------->
 
 <!--
 This is the payoff slide. Point at the code.
@@ -287,7 +288,7 @@ Land the callout:
 This is the same separation Tim showed. His resume.json + render modules is my resume.typ + template.typ. Good ideas transcend the language.
 -->
 
-<!---------- SLIDE 15 | RYAN | CHOOSING YOUR TOOL ---------->
+<!---------- SLIDE 18 | RYAN | CHOOSING YOUR TOOL ---------->
 
 <!--
 Do not read every cell. Pick the audience-relevant contrasts:
@@ -302,7 +303,7 @@ Land the callout:
 The common thread is treating your resume as structured data instead of a Word doc you nudge around. Once it's data, you can version it, diff it, and reuse it.
 -->
 
-<!---------- SLIDE 16 | RYAN | MASTER RESUME FOR AI ---------->
+<!---------- SLIDE 19 | RYAN | MASTER RESUME FOR AI ---------->
 
 <!--
 Explain the master file idea:
@@ -320,7 +321,7 @@ Land the callout:
 Tim's JSON drives a web page; my Markdown drives the AI that maintains the resumes. Same principle: structure your data once, render it anywhere.
 -->
 
-<!---------- SLIDE 17 | RYAN | TEMPLATE REPO LINK ---------->
+<!---------- SLIDE 20 | RYAN | TEMPLATE REPO LINK ---------->
 
 <!--
 Give people a moment to scan the QR code.
@@ -336,4 +337,6 @@ Whatever tool you pick tonight — Tim's or mine — the win is the same: your r
 Hand back for Q/A.
 -->
 
-<!---------- SLIDE 18 | RYAN | THANKS & Q/A ---------->
+<!---------- SLIDE 21 | RYAN | THANKS & Q/A ---------->
+
+<!---------- SLIDE 22 | RYAN | HTML DAY ---------->
