@@ -159,7 +159,7 @@ Compare approaches, perspectives, and tradeoffs with an experienced developer so
 
 <!--
 SLIDE 4 | WHY I BUILT THIS - Part 3
-- I wanted an honest assessment of my current JavaScript understanding, while learning and practicing how to think like a developer, I also wanted to build communication skills through a practical project using HTML, CSS, and JavaScript fundamentals
+- I wanted an honest assessment of my current JavaScript understanding, learn how to think like a developer, and build communication skills talking through a practical project using HTML, CSS, and JavaScript fundamentals
 - The opportunity to speak with Ryan, learn from his experience, compare approaches, perspectives, and practical tradeoffs when solving the same problem
 -->
 
@@ -191,7 +191,7 @@ transition: slide-up
 SLIDE 5 | LIVE RESUME BENEFITS
 - This project is not a meet-all-ends solution, but an alternative avenue to share your story, show initiative while networking and building relationships.
 
-**Emphasize:**
+**Learning Curve from Convo with Ryan:**
 - An online resume is not meant to replace an ATS-friendly resume. 
 - Use the ATS resume for job applications and automated screening.
 - Use the live resume for networking, sharing project links, and telling your story.
@@ -246,6 +246,10 @@ transition: fade-out
 | **Day 13** | Error handling with `try/catch`                               |
 | **Day 14-17** | Refactoring into modular components                           |
 | **Day 18-21** | Styling, design system, and print feature (CSS, fonts, print) |
+
+<div v-click class="col-span-2 mt-4 p-3 border border-primary/30 rounded bg-primary/5">
+    I leveraged AI to help me structure my daily commit logs in the README.md, act as a mentor for understanding code alongside external resources, generate css design tokens, and generate the print feature markup. I had to reference documentation for unfamiliar concepts. 
+</div>
 
 </div>
 
@@ -400,13 +404,14 @@ transition: fade-out
 
 <div class="text-sm mt-2">
 
-| Issue                                 | Cause                                                          | What I Learned                                            |
-|---------------------------------------|----------------------------------------------------------------|-----------------------------------------------------------|
-| `ReferenceError: data is not defined` | Data was referenced outside of `.then()`                       | Scope lives where the data lives                          |
-| `404` on `fetch()`                    | Wrong relative path to `resume.json`                           | File paths depend on where the page is loaded             |
-| Silent fetch failure                  | `fetch()` alone does not throw HTTP errors responses by itself | Check `response.ok` before calling `response.json()`      |
-| Wrong section title in README.md      | Copy/paste without a full review                               | Documentation mistakes are easy to miss                   |
-| Unused CSS selector                   | Removed markup but left old CSS behind                         | Removing a feature means checking HTML, JS, CSS, and data |
+| Issue                                 | Cause                                                           | What I Learned                                                 |
+|---------------------------------------|-------------------------------------------------------------------------|----------------------------------------------------------------|
+| `ReferenceError: data is not defined` | Data was referenced outside of `.then()`                        | Scope lives where the data lives                               |
+| `404` on `fetch()`                    | Wrong relative path to `resume.json`                            | File paths depend on where the page is loaded                  |
+| Silent fetch failure                  | `fetch()` alone does not throw HTTP error responses by itself   | Check `response.ok` before calling `response.json()`           |
+| Wrong section title in README.md      | Copy/paste without full review                                  | Documentation mistakes are easy to miss                        |
+| Unused CSS selector                   | Removed markup but left old CSS behind                          | Removing a feature means checking HTML, JS, CSS, and data      |
+| Referencing HTML markup in docs       | Documentation review skipped prior to commit                    | Helps explain the overall project foundation                   |
 
 </div>
 
@@ -420,6 +425,7 @@ SLIDE 10 | BUGS & MISTAKES
 - The silent fetch failure taught me that `fetch()` needs an extra check with `response.ok`
 - The README mistake was a reminder that documentation needs the same attention as code
 - The unused CSS selector showed me that removing a feature means checking every related file, not just one place
+- Document all completed work so reviewers understand the project's foundation.
 - Each mistake helped me understand the project better and made the next bug easier to troubleshoot
 -->
 
@@ -458,10 +464,15 @@ const liveDemoUrl = 'https://timbaines.github.io/resume-js/'
 SLIDE 11 | LIVE DEMO
 
 **Switch to IDE and Walk the group through:**
-- The JSON data file is where the data is stored (only need to make changes to one file)
-- The fetch process `index.mjs` file 
-- `render.mjs` coordinating section modules
-- Walk through skills.mjs file as example
+- Data Layer - `resume.json` contains all resume content (name, skills, experience, projects, education, etc.) organized as objects and arrays
+- Entry Point - `src/index.mjs` fetches the JSON file with error handling using `async/await`
+- Orchestration - `render.mjs` imports all section rendering functions and coordinates building the page 
+- Rendering Modules – each section (header, skills, experience, projects, etc.) has its own .mjs file that:
+    - Takes data as input
+    - Uses `.map()` to transform array items into HTML strings
+    - Returns formatted HTML
+- DOM Injection – each section's HTML is injected into its corresponding DOM element using innerHTML
+- Features - print button functionality allows exporting as PDF
 
 - Demo a small change to the project: 
     - Throw an error
@@ -557,13 +568,13 @@ SLIDE 13 | TAKEAWAYS - Part 2
 
 5. Refactoring turns working code into understandable code
 6. Real projects improve through review, mistakes, and feedback
-7. Asking for help
-8. The importance of relationships
+7. Asking for help and getting feedback helps work through problems/ understanding tradeoffs 
+8. The importance of relationship building. Make time and space for feedback, collaboration, and shared learning
 
 **Good time to share:**
 Ryan took time to walk through the project with me, offer feedback, share resources, and point out practical tradeoffs.
 
-One example was the print feature. It worked, but Ryan helped me understand that browser print behavior is not always consistent, and customization can be limited across different browsers.
+One example was the print feature. It worked, but Ryan helped me understand that browser print behavior is not always consistent, and customization can be limited across different browsers (Firefox does not support the removal of header/footer with print).
 
 -->
 
@@ -826,7 +837,7 @@ class: text-center
 
   <div>
     <strong>Presentation Deck</strong> —
-    <a href="https://github.com/Timbaines/resume-js-presentation">github.com/Timbaines/resume-js-presentation</a>
+    <a href="https://resume-js-presentation.netlify.app/1">https://resume-js-presentation.netlify.app/1</a>
   </div>
 
 </div>
